@@ -5,26 +5,32 @@ import Modal from "../../Modal/Modal";
 const InputUser = ({ addUser }) => {
   const [userInput, setUserInput] = useState("");
   const [userAge, setUserAge] = useState(0);
-  const [isInvalid, setIsInvalid] = useState(false);
-  const [error, setError] = useState("");
+  // const [isInvalid, setIsInvalid] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (userInput.trim() === "" || userAge.trim() === "") {
-      setIsInvalid(true);
-      setError("Username and Age fields must be entered");
+      // setIsInvalid(true);
+      setError({
+        title: "Invalid input",
+        message: "Username and Age fields must be entered",
+      });
       return;
     }
     if (userAge < 0) {
-      setIsInvalid(true);
-      setError("Age cannot be cero or a negative number");
+      // setIsInvalid(true);
+      setError({
+        title: "Invalid age",
+        message: "Age must be a positive number greater than 1",
+      });
       setUserAge("");
       return;
     }
     const newUsers = {
       id: Date.now(),
       username: userInput,
-      age: parseInt(userAge),
+      age: +userAge, //+ converts string to a number
     };
     addUser(newUsers);
     setUserInput("");
@@ -32,11 +38,11 @@ const InputUser = ({ addUser }) => {
   };
   return (
     <div>
-      {isInvalid && (
+      {error && (
         <Modal
-          errorTitle="An error occurred!"
-          errorMessage={error}
-          setIsInvalid={setIsInvalid}
+          errorTitle={error.title}
+          errorMessage={error.message}
+          setError={setError}
         />
       )}
       <form onSubmit={handleSubmit}>

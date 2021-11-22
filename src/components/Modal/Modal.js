@@ -1,13 +1,9 @@
 import React from "react";
-import Button from "../UI/Button/Button";
 
-const Modal = ({ errorTitle, errorMessage, setIsInvalid }) => {
-  const closeModal = () => {
-    setIsInvalid(false);
-  };
+const Modal = ({ errorTitle, errorMessage, setError }) => {
   return (
     <div>
-      <div className="backdrop" onClick={closeModal} />
+      <div className="backdrop" onClick={() => setError(null)} />
       <div
         className="toast show"
         role="alert"
@@ -24,19 +20,19 @@ const Modal = ({ errorTitle, errorMessage, setIsInvalid }) => {
             data-bs-dismiss="toast"
             aria-label="Close"
             id="Close-button"
-            onClick={closeModal}
+            onClick={() => setError(null)}
           >
             <span aria-hidden="true"></span>
           </button>
         </div>
         <div className="toast-body">
           {errorMessage}
-          <Button
-            text="Close"
-            size="btn-sm"
-            position="right"
-            closeModal={closeModal}
-          />
+          <button
+            className={`btn btn-danger mt-2 btn-sm right`}
+            onClick={() => setError(null)}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
