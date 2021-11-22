@@ -4,8 +4,16 @@
 
 html {
   font-family: sans-serif;
+  
 }
 
 body {
   margin: 0;
+  background-color: black;
+  
+}
+
+.card {
+  max-width: 600px;
+  border-radius: 15px;
 }
