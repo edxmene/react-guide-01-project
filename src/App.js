@@ -24,13 +24,7 @@ function App() {
 
   return (
     <main>
-      <div className="card mt-5 container">
-        <div className="card-body">
-          <div className="container">
-            <InputUser setUsers={setUsers} users={users} addUser={addUser} />
-          </div>
-        </div>
-      </div>
+      <InputUser setUsers={setUsers} users={users} addUser={addUser} />
       <UserList users={users} deleteUser={deleteUser} />
     </main>
   );
