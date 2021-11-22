@@ -5,22 +5,40 @@ import Modal from "../../Modal/Modal";
 const InputUser = ({ addUser }) => {
   const [userInput, setUserInput] = useState("");
   const [userAge, setUserAge] = useState(0);
+  const [isInvalid, setIsInvalid] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (userInput.trim() === "" || userAge.trim() === "") {
+      setIsInvalid(true);
+      setError("Username and Age fields must be entered");
+      return;
+    }
+    if (userAge < 0) {
+      setIsInvalid(true);
+      setError("Age cannot be cero or a negative number");
+      setUserAge("");
+      return;
+    }
     const newUsers = {
       id: Date.now(),
       username: userInput,
       age: parseInt(userAge),
     };
     addUser(newUsers);
+    setUserInput("");
+    setUserAge("");
   };
   return (
     <div>
-      <Modal
-        errorTitle={"An error occurred!"}
-        errorMessage={"Something went wrong"}
-      />
+      {isInvalid && (
+        <Modal
+          errorTitle="An error occurred!"
+          errorMessage={error}
+          setIsInvalid={setIsInvalid}
+        />
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username" className="form-label">
@@ -48,7 +66,7 @@ const InputUser = ({ addUser }) => {
             onChange={(e) => setUserAge(e.target.value)}
           />
         </div>
-        <Button text={"Add User"} type={"submit"} />
+        <Button text="Add User" type="submit" />
       </form>
     </div>
   );
