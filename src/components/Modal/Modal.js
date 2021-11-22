@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../UI/Button/Button";
 
-const Modal = () => {
+const Modal = ({ errorTitle, errorMessage }) => {
   return (
     <div>
       <div className="backdrop" />
@@ -12,7 +12,9 @@ const Modal = () => {
         aria-atomic="true"
       >
         <div className="toast-header">
-          <strong className="me-auto">Bootstrap</strong>
+          <h5>
+            <strong className="me-auto">{errorTitle}</strong>
+          </h5>
           <button
             type="button"
             className="btn-close"
@@ -24,8 +26,8 @@ const Modal = () => {
           </button>
         </div>
         <div className="toast-body">
-          Hello, world! This is a toast message.
-          <Button text={"Close"} size={"btn-sm"} />
+          {errorMessage}
+          <Button text={"Close"} size={"btn-sm"} position={"right"} />
         </div>
       </div>
     </div>

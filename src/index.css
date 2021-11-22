@@ -54,10 +54,21 @@ background-image: linear-gradient(#a152a5, #9b479f 6%, #924395);
 color: white;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
+justify-content: space-between;
+align-items: center;
 }
 
 #Close-button {
   background-color: white;
   margin-right: 1px;
   margin-bottom: 5px;
+}
+
+.right {
+  float: right;
+  margin-bottom: 10px;
+}
+
+h5 {
+  display: inline-block;
 }
