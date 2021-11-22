@@ -2,7 +2,7 @@ import React from "react";
 
 const Modal = ({ errorTitle, errorMessage, setError }) => {
   return (
-    <div>
+    <>
       <div className="backdrop" onClick={() => setError(null)} />
       <div
         className="toast show"
@@ -35,7 +35,7 @@ const Modal = ({ errorTitle, errorMessage, setError }) => {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

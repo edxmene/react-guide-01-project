@@ -38,7 +38,7 @@ const InputUser = ({ addUser }) => {
     setUserAge("");
   };
   return (
-    <div>
+    <>
       {error && (
         <Modal
           errorTitle={error.title}
@@ -77,7 +77,7 @@ const InputUser = ({ addUser }) => {
           <Button text="Add User" type="submit" />
         </form>
       </Card>
-    </div>
+    </>
   );
 };
 // Ojo Button must be of submit type otherwise It will not submit

@@ -2,7 +2,7 @@ import React from "react";
 
 const User = ({ user, deleteUser }) => {
   return (
-    <div>
+    <>
       <div
         className="card mt-3 container item"
         onClick={() => deleteUser(user.id)}
@@ -15,7 +15,7 @@ const User = ({ user, deleteUser }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
