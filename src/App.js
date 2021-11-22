@@ -10,16 +10,28 @@ const initialUsers = [
 
 function App() {
   const [users, setUsers] = useState(initialUsers);
+
+  const addUser = (userInfo) => {
+    setUsers((prevUsers) => {
+      return [userInfo, ...prevUsers];
+    });
+  };
+
+  const deleteUser = (idUser) => {
+    const newUsers = users.filter((user) => user.id !== idUser);
+    setUsers(newUsers);
+  };
+
   return (
     <main>
       <div className="card mt-5 container">
         <div className="card-body">
           <div className="container">
-            <InputUser setUsers={setUsers} users={users} />
+            <InputUser setUsers={setUsers} users={users} addUser={addUser} />
           </div>
         </div>
       </div>
-      <UserList users={users} />
+      <UserList users={users} deleteUser={deleteUser} />
     </main>
   );
 }

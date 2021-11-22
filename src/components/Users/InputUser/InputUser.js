@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
 
-const InputUser = ({ setUsers, users }) => {
+const InputUser = ({ addUser }) => {
   const [userInput, setUserInput] = useState("");
   const [userAge, setUserAge] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUsers = [
-      { id: Date.now().toString(), username: userInput, age: userAge },
-      ...users,
-    ];
-
-    setUsers(newUsers);
+    const newUsers = {
+      id: Date.now(),
+      username: userInput,
+      age: parseInt(userAge),
+    };
+    addUser(newUsers);
   };
   return (
     <form onSubmit={handleSubmit}>

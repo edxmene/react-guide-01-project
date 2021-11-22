@@ -1,9 +1,9 @@
 import React from "react";
 
-const User = ({ user }) => {
+const User = ({ user, deleteUser }) => {
   return (
     <div>
-      <div className="card mt-3 container">
+      <div className="card mt-3 container" onClick={() => deleteUser(user.id)}>
         <div className="card-body">
           <div className="container">
             <p className="form-control">
