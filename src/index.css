@@ -9,11 +9,15 @@ html {
 
 body {
   margin: 0;
-  background-color: black;
+  background-color: #363636;
   
 }
 
 .card {
   max-width: 600px;
   border-radius: 15px;
+}
+
+p.form-control {
+  margin: 0%;
 }
