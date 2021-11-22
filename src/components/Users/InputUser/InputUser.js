@@ -42,7 +42,7 @@ const InputUser = ({ addUser }) => {
           onChange={(e) => setUserAge(e.target.value)}
         />
       </div>
-      <Button />
+      <Button text={"Add User"} type={"submit"} />
     </form>
   );
 };

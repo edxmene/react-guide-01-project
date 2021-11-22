@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "./components/Modal/Modal";
 
 import InputUser from "./components/Users/InputUser/InputUser";
 import UserList from "./components/Users/UserList/UserList";
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <main>
+      <Modal />
       <div className="card mt-5 container">
         <div className="card-body">
           <div className="container">
